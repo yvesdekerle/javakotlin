@@ -1,0 +1,3 @@
+spacex-api:
+    url: http://localhost:9000/v4
+    launches: /launches

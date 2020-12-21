@@ -9,11 +9,12 @@ import static java.util.Objects.requireNonNull;
 
 public class SpaceXClient {
 
-    private static final String SPACEX_URL = "https://api.spacexdata.com/v4/launches";
     private final RestTemplate restTemplate;
+    private final SpaceXProperties spaceXProperties;
 
-    public SpaceXClient(RestTemplate restTemplate) {
+    public SpaceXClient(RestTemplate restTemplate, SpaceXProperties spaceXProperties) {
         this.restTemplate = restTemplate;
+        this.spaceXProperties = spaceXProperties;
     }
 
     public List<Launch> launches() {
@@ -21,12 +22,16 @@ public class SpaceXClient {
             return List.of(
                 requireNonNull(
                     restTemplate
-                    .getForEntity(SPACEX_URL, Launch[].class)
+                    .getForEntity(buildLaunchesUrl(), Launch[].class)
                     .getBody()
                 )
             );
         } catch(RestClientException e) {
             return List.of();
         }
+    }
+
+    private String buildLaunchesUrl() {
+        return spaceXProperties.getUrl() + spaceXProperties.getLaunches();
     }
 }

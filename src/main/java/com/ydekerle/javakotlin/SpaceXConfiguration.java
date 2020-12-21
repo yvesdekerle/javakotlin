@@ -1,6 +1,7 @@
 package com.ydekerle.javakotlin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -10,6 +11,7 @@ import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKN
 import static com.fasterxml.jackson.databind.PropertyNamingStrategy.SNAKE_CASE;
 import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS;
 
+@EnableConfigurationProperties(SpaceXProperties.class)
 public class SpaceXConfiguration {
 
     @Bean
@@ -37,8 +39,8 @@ public class SpaceXConfiguration {
     }
 
     @Bean
-    public SpaceXClient spaceXClient(final RestTemplate restTemplate) {
-        return new SpaceXClient(restTemplate);
+    public SpaceXClient spaceXClient(final RestTemplate restTemplate, final SpaceXProperties spaceXProperties) {
+        return new SpaceXClient(restTemplate, spaceXProperties);
     }
 
     @Bean

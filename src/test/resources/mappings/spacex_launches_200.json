@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/v4/launches"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "spacex_launches_200.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

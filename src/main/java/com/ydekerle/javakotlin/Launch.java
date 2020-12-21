@@ -1,6 +1,7 @@
 package com.ydekerle.javakotlin;
 
 import java.time.OffsetDateTime;
+import java.util.Objects;
 
 public class Launch {
 
@@ -42,5 +43,13 @@ public class Launch {
 
     public void setSuccess(Boolean success) {
         this.success = success;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Launch launch = (Launch) o;
+        return Objects.equals(id, launch.id) && Objects.equals(name, launch.name) && Objects.equals(dateUtc, launch.dateUtc) && Objects.equals(success, launch.success);
     }
 }

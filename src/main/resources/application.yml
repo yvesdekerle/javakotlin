@@ -1,0 +1,3 @@
+spacex-api:
+    url: https://api.spacexdata.com/v4
+    launches: /launches

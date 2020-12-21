@@ -29,14 +29,6 @@ internal class SpaceXServiceTest {
         val launch5 = buildLaunch("5eb87cd9ffd86e000604b32a","FalconSat", false, OffsetDateTime.parse("2006-03-24T22:30:00.000Z"))
         val launchNull = buildLaunch(null,null, null, null)
 
-        private fun buildLaunch(id: String?, name: String?, success: Boolean?, date: OffsetDateTime?): Launch {
-            val launch = Launch()
-            launch.id = id
-            launch.name = name
-            launch.success = success
-            launch.dateUtc = date
-            return launch
-        }
     }
 
     @Test

@@ -8,7 +8,7 @@
 		<version>2.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ydekerle.mix</groupId>
+	<groupId>com.ydekerle.javakotlin</groupId>
 	<artifactId>javakotlin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>javakotlin</name>
@@ -19,6 +19,7 @@
 		<kotlin.version>1.4.21</kotlin.version>
 		<mockk.version>1.10.3</mockk.version>
 		<kluent.version>1.64</kluent.version>
+		<wiremock.version>2.25.1</wiremock.version>
 	</properties>
 
 	<dependencies>
@@ -59,6 +60,12 @@
 			<version>${kluent.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.github.tomakehurst</groupId>
+			<artifactId>wiremock</artifactId>
+			<version>${wiremock.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -71,6 +78,18 @@
 				<groupId>org.jetbrains.kotlin</groupId>
 				<artifactId>kotlin-maven-plugin</artifactId>
 				<version>${kotlin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.jetbrains.kotlin</groupId>
+						<artifactId>kotlin-maven-noarg</artifactId>
+						<version>${kotlin.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.jetbrains.kotlin</groupId>
+						<artifactId>kotlin-maven-allopen</artifactId>
+						<version>${kotlin.version}</version>
+					</dependency>
+				</dependencies>
 				<executions>
 					<execution>
 						<id>compile</id>
