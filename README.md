@@ -5,8 +5,8 @@ Simple application that mixed Java for sources and Kotlin for tests
 ## Description : 
 Unit tests :
  - JUnit 5
- - Mockk (Mockito)
- - Kluent (AssertJ)
+ - [Mockk](https://mockk.io/) (Mockito)
+ - [Kluent](https://github.com/MarkusAmshove/Kluent) (AssertJ)
 
 Integration test :
  - Wiremock
